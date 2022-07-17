@@ -1,0 +1,11 @@
+.aside {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 20%;
+  height: 100vh;
+  background-color: #edf0f7;
+}
+

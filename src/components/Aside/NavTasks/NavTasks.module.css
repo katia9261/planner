@@ -1,0 +1,17 @@
+.navTasks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 30%;
+  margin: 20px 0 20px 20px;
+}
+
+.today, .myTasks, .deferredTasks {
+  margin: 10px 0;
+}
+
+.active {
+  color: #8541f6;
+}
+
