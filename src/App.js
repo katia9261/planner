@@ -1,8 +1,12 @@
+import Aside from "./components/Aside/Aside";
+import Main from "./components/Main/Main";
+import styles from './App.module.css'
 
 function App() {
   return (
-    <div className="App">
-        TEXT
+    <div className={styles.app}>
+        <Aside />
+        <Main />
     </div>
   );
 }

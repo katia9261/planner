@@ -1,0 +1,24 @@
+.navSettings {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 20%;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.navTrashSet {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.trash, .settings {
+  margin: 10px 0;
+}
+
+.login {
+  height: 20%;
+}

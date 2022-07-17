@@ -1,0 +1,8 @@
+.Schedule {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 69%;
+  margin: 20px 0 30px 30px;
+  background-color: #edf0f7;
+}
