@@ -1,16 +1,14 @@
 import React from 'react'
+import CustomInput from '../CustomInput/CustomInput'
 import styles from './Inputs.module.css'
-import NameTask from './NameTask/NameTask'
-import Time from './Time/Time'
-import Priority from './Priority/Priority'
-import Description from './Description/Description'
 
-export default function Inputs() {
+export default function Description() {
   return (
-    <div className={styles.inputs}>      
-    <NameTask/>
-    <Time/>
-    <Priority/>
-    <Description/></div>
+    <div className={styles.items}>
+      <CustomInput className={styles.name} nameItem={{value: 'Name task'}}/>
+      <CustomInput nameItem={{value: 'Time'}}/>
+      <CustomInput nameItem={{value: 'Priority'}}/>
+      <CustomInput nameItem={{value: 'Description'}}/>
+    </div>
   )
 }

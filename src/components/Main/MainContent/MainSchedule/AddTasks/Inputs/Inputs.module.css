@@ -1,6 +1,8 @@
-.inputs {
+.items {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 75%;
+  align-items: center;
+  align-content: space-around;
+  justify-content: space-evenly;
+  height: 70%;
 }

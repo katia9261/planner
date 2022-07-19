@@ -3,7 +3,7 @@ import styles from './CustomIput.module.css'
 import styled from 'styled-components'
 
 
-export default function CustomInput() {
+const CustomInput = (props) => {
   
   const Input = styled.input.attrs({ 
     type: 'text',
@@ -19,8 +19,10 @@ export default function CustomInput() {
   `
   return (
     <div className={styles.container}>
-        <Input type="text" placeholder="Name" />
+        <Input type="text" placeholder={props.nameItem.value} />
           {/*<input type="text" />*/}
     </div>
   )
 }
+
+export default CustomInput;
