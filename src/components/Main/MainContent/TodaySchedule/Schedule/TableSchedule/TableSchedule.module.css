@@ -1,0 +1,8 @@
+.tableSchedule {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40px;
+  margin: 10px 10px 0 10px;
+  border-radius: 15px 15px 0 0;
+}

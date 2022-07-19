@@ -1,9 +1,0 @@
-.headerSchedule {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 40px;
-  margin: 10px 10px 0 10px;
-  background-color: #6d6d6d;
-  border-radius: 15px 15px 0 0;
-}
