@@ -1,0 +1,9 @@
+.tagContainer {
+	margin-right: 0;
+	margin-left: auto;
+}
+
+.tag {
+	padding: 3px 7px;
+	border-radius: 15px;
+}

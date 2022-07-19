@@ -1,0 +1,26 @@
+.scheduleItem {
+  display: flex;
+  flex-direction: row;
+	margin: 5px 10px;
+	align-items: center;
+}
+
+.scheduleItem__label {
+	flex-basis: 3;
+	width: 40%;
+}
+
+.crossed{
+	text-decoration: line-through;
+}
+
+.scheduleItem__time {
+	flex-basis: 2;
+	width: 20%;
+	text-align: center;
+}
+
+.scheduleItem__tags {
+	flex-basis: 2;
+	width: 30%;
+}

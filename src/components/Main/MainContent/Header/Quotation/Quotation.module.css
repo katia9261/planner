@@ -1,7 +1,10 @@
 .quotation {
-  margin: auto 3%;
-  border-color: #6d6d6d;
+  margin-right: 10px;
   border: 1.5px solid #6d6d6d;
   border-radius: 10px;
   padding: 2px;
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+  font-size: 13px;
 }

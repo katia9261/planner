@@ -1,0 +1,14 @@
+.schedule {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 75%;
+  background-color: #edf0f7;
+}
+.contentSchedule {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
