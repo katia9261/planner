@@ -20,7 +20,6 @@ export default function CustomInput() {
   return (
     <div className={styles.container}>
         <Input type="text" placeholder="Name" />
-          {/*<input type="text" />*/}
     </div>
   )
 }

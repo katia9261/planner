@@ -11,6 +11,7 @@ export default function Inputs() {
     <NameTask/>
     <Time/>
     <Priority/>
-    <Description/></div>
+    <Description/>
+    </div>
   )
 }

@@ -10,6 +10,7 @@ export default function Main() {
     <ContextWrapper>
     <div className={styles.main}>
       <MainContent/>
+      {/*<Calendar/>*/}
     </div>
     </ContextWrapper>
   )
