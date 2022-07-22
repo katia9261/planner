@@ -7,7 +7,7 @@ const AddTasks = () => {
   return (
     <div className={styles.addTasks}>
       <Inputs/>
-      <ButtonAddTask/>
+      {/*<ButtonAddTask/>*/}
     </div>
   )
 }

@@ -20,7 +20,7 @@ function setColorTag(tag) {
 }
 
 export default function Tag({ tags }) {
-	let prop = false;
+	
   return (
     <div className={cn('tagContainer')}>
       <div className={cn('tag')} style={{ backgroundColor: setColorTag(tags) }}>

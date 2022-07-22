@@ -17,10 +17,10 @@ export default function TableScheduleHeader() {
       <div className={styles.itemsSchedule}>
         {/*<CheckBox id={`header-checkbox-${columnNames.nameTask}`} status={columnNames.status} />*/}
         <Checkbox
-        value={value}
-        checked={value}
-        onChange={({ target }) => setCheckbox(!value)}
-				style={{backgroundColor: '#fff'}}
+          value={value}
+          checked={value}
+          onChange={({ target }) => setCheckbox(!value)}
+          style={{backgroundColor: '#fff'}}
       />
 				<label
           className={styles.itemsSchedule__label}
