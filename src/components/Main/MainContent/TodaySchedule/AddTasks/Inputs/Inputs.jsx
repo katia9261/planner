@@ -9,24 +9,62 @@ import {set, ref} from 'firebase/database'
 
 
 export default function Inputs() {
-  const [toDo, setToDo] = useState('')
+  {/*const [toDo, setToDo] = useState('')*/}
+  const [name, setNameTodo] = useState('')
+  const [time, setTimeTodo] = useState('')
+  const [tags, setTagsTodo] = useState('')
+  const [description, setDescriptionTodo] = useState('')
 
-  const writeToDatabase = () => {
+  
+
+  const writeToDatabase = (name, time, tags, description) => {
     const uidd = uid();
     set(ref(db, `/${auth.currentUser.uid}/${uidd}`), {
-      toDo: toDo,
+      nameTodo: name,
+      timeTodo: time,
+      tagsTodo: tags,
+      descriptionTodo: description,
       uidd: uidd,
     });
-    setToDo('');
+    setNameTodo('');
+    setTimeTodo('');
+    setTagsTodo('');
+    setDescriptionTodo('');
   }
 
+  const handleChangeName = (e) => {
+    setNameTodo(e.currentTarget.value);
+  };
+
+  const handleChangeTime = (e) => {
+    setTimeTodo(e.currentTarget.value);
+  };
+
+  const handleChangeTags = (e) => {
+    setTagsTodo(e.currentTarget.value);
+  };
+
+  const handleChangeDescription = (e) => {
+    setDescriptionTodo(e.currentTarget.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    writeToDatabase(name, time, tags, description);
+    setNameTodo('');
+    setTimeTodo('');
+    setTagsTodo('');
+    setDescriptionTodo('');
+  };
+
   return (
-    <div className={styles.inputs}>   
-      <CustomInput name={'Task Name'} onChange={(e) => setToDo(e.target.value)}/>
-      <CustomInput name={'Time'} onChange={(e) => setToDo(e.target.value)}/>
-      <CustomInput name={'Tags'} onChange={(e) => setToDo(e.target.value)}/>
-      <CustomInput name={'Description'} onChange={(e) => setToDo(e.target.value)}/>
+    <form className={styles.inputs} onSubmit={handleSubmit}>   
+    {/*<input value={toDo} type="text" onChange={handleChange} placeholder="Task Name" />*/}
+      <input value={name} type="text" onChange={handleChangeName} placeholder="Task Name" />
+      <input value={time} type="time" onChange={handleChangeTime} placeholder="Time" />
+      <input value={tags} type="text" onChange={handleChangeTags} placeholder="Tags" />
+      <input value={description} type="text" onChange={handleChangeDescription} placeholder="Description" />
       <ButtonAddTask />
-    </div>
+    </form>
   )
 }
