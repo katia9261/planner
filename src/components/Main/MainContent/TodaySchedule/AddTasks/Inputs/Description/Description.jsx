@@ -5,7 +5,7 @@ import styles from './Description.module.css'
 export default function Description() {
   return (
     <div className={styles.description}>
-      <CustomInput />
+      <CustomInput name={"Descro"} />
     </div>
   )
 }

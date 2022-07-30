@@ -1,0 +1,92 @@
+.loginForm {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.SignUpRegisterContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background: transparent;
+  font-size: 16px;
+  color: #000;
+  outline: none;
+  border: none;
+  border-bottom: 1.25px solid  #6d6d6d;
+}
+
+.cleateAcc {
+  border: none;
+  background-color: #8541f6;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.signUpButton {
+  border: none;
+  background-color: #8541f6;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.LoginRegisterContainer {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.registerInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background: transparent;
+  font-size: 16px;
+  color: #000;
+  outline: none;
+  border: none;
+  border-bottom: 1.25px solid  #6d6d6d;
+}
+
+.registerButton {
+  border: none;
+  background-color: #8541f6;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.goBackButton {
+  border: none;
+  background-color: #8541f6;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 10px;
+}
