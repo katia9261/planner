@@ -60,10 +60,10 @@ export default function Inputs() {
   return (
     <form className={styles.inputs} onSubmit={handleSubmit}>   
     {/*<input value={toDo} type="text" onChange={handleChange} placeholder="Task Name" />*/}
-      <input value={name} type="text" onChange={handleChangeName} placeholder="Task Name" />
-      <input value={time} type="time" onChange={handleChangeTime} placeholder="Time" />
-      <input value={tags} type="text" onChange={handleChangeTags} placeholder="Tags" />
-      <input value={description} type="text" onChange={handleChangeDescription} placeholder="Description" />
+      <input className={styles.input} value={name} type="text" onChange={handleChangeName} placeholder="Task Name" />
+      <input className={styles.input} value={time} type="time" onChange={handleChangeTime} placeholder="Time" />
+      <input className={styles.input} value={tags} type="text" onChange={handleChangeTags} placeholder="Tags" />
+      <input className={styles.input} value={description} type="text" onChange={handleChangeDescription} placeholder="Description" />
       <ButtonAddTask />
     </form>
   )

@@ -26,6 +26,8 @@ const [isRegistering, setIsRegistering] = useState(false);
     auth.onAuthStateChanged((user) => {
       if(user) {
         navigate('/planner')
+      } else if (!user) {
+        navigate('/');
       }
     });
   }, []);
@@ -59,46 +61,58 @@ const [isRegistering, setIsRegistering] = useState(false);
 
   return (
     <div className={styles.loginForm}>
-      <h3>Welcome to ideal planner</h3>
       <div className={styles.LoginRegisterContainer}>
+      <h3>Welcome to ideal planner</h3>
         {isRegistering ? (
           <>
             <input 
+              className={styles.registerInput}
               type='email' 
               placeholder='Email' 
               value={registerInfo.email}
               onChange = {(e) => setRegisterInfo({...registerInfo, email: e.target.value})}
             />
             <input 
+              className={styles.registerInput}
               type='password' 
-              placeholder='password'
+              placeholder='Password'
               value={registerInfo.password}
               onChange = {(e) => setRegisterInfo({...registerInfo, password: e.target.value})}
             />
             <input 
+              className={styles.registerInput}
               type='password' 
               placeholder='Confirm password' 
               value={registerInfo.confirmPassword}
               onChange = {(e) => setRegisterInfo({...registerInfo, confirmPassword: e.target.value})}
             />
-            <button onClick={handleRegister}>Register</button>
-            <button onClick={() => setIsRegistering(false)}>
+            <button className={styles.registerButton} onClick={handleRegister}>Register</button>
+            <button className={styles.goBackButton} onClick={() => setIsRegistering(false)}>
               Go back
             </button>
           </>
         ) : (
+          <div className={styles.SignUpRegisterContainer}>
           <>
-            <input type='email' onChange={handleEmailChange} value={email}/>
             <input 
+              className={styles.signUpForm} 
+              type='Email' 
+              onChange={handleEmailChange} 
+              value={email} 
+              placeholder='email'/>
+            <input 
+              className={styles.signUpForm}
               type='password' 
               onChange={handlePasswordChange} 
               value={password}
+              placeholder='Password'
             />
-            <button onClick={handleSignIn}>Sign up</button>
-            <button onClick={() => setIsRegistering(true)}>
+            <button className={styles.signUpButton} onClick={handleSignIn}>Sign up</button>
+            <button className={styles.cleateAcc} onClick={() => setIsRegistering(true)}>
               Create an account
             </button>
       </>
+      </div>
         )}
       </div>
     </div>
