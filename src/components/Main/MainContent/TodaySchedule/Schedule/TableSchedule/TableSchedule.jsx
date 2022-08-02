@@ -9,7 +9,6 @@ import { uid } from "uid";
 
 export default function TableSchedule() {
   const [todos, setTodos] = useState([]);
-
   useEffect(() => {
     onValue(ref(db, `/${auth.currentUser.uid}`), (snaphot) => {
       setTodos([]);
