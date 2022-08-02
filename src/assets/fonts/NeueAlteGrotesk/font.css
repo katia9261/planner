@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Neue';
+  src: url('NeueAlteGrotesk-Regular.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: NeueGrotesk;
+  src: url('NeueAlteGrotesk-ExtraLight.ttf');
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: NeueGrotesk;
+  src: url('NeueAlteGrotesk-SemiBold.ttf');
+  font-weight: bold;
+}
