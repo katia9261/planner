@@ -3,23 +3,21 @@
   box-sizing: border-box;
   flex: 1 1 0%;
   height: 90%;
-  width: 95%;
-  background-color: #6f6f6f;
+	width: 100%;
+  background-color: #fff;
   opacity: 70%;
 	grid-template-columns: repeat(7, minmax(0, 1fr));
   grid-column-gap: 10px;
-  grid-gap: 0.5px;
+  grid-gap: 2px;
   justify-content: start;
-  margin: 10px 0 10px 0;
-    {/*grid-template-rows: repeat(5, minmax(0, 1fr));*/}
 }
 
 .days {
-  background-color: #eff0f7;
-  height: 99%;
-  color: #000;
-  width: 99%;
-  margin: 0.5px;
+  
+}
+
+.border-left {
+	border-radius: 0 0 0 15px;
 }
 
 
@@ -39,6 +37,15 @@
   margin: 0;
 }
 
+.dayItems {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	height: 100%;
+	width: 100%;
+	padding: 0 10px;
+}
+
 .isToday {
   background-color: #8541f6;
   color: white;
@@ -48,18 +55,14 @@
 }
 
 .headerTable {
-  width: 95%;
-  height: 30px;
-  display: flex;
-  color: black;
-  justify-content: center;
-  align-items: center;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   margin: 30px 30px 0 30px;
   height: 40px;
   background-color: #edf0f7;
   border-radius: 15px 15px 0 0;
+  align-items: center;
 }
 
 .buttonToday {
@@ -73,5 +76,9 @@
 
 .buttonMonth {
   height: 20px;
-  margin: 5px;
+	margin: 0 10px;
+	border: none;
+	outline: none;
+	background: transparent;
+	cursor: pointer;
 }

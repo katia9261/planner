@@ -9,7 +9,7 @@ export default function CustomInput({name}) {
     type: 'text',
   })` 
     background: transparent;
-    font-size: 16px;
+    font-size: 20px;
     color: #000;
     width: 80%;
     outline: none;

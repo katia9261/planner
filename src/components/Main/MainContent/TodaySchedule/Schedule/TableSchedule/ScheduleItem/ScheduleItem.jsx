@@ -15,7 +15,6 @@ export default function ScheduleItem(todo) {
   const [tags, setTagsTodo] = useState("");
   const [description, setDescriptionTodo] = useState("");
   const [click, setClick] = useState(false);
-  const [tempUidd, setTempUidd] = useState("");
 
   const inputRef = useRef(null);
 
@@ -47,16 +46,16 @@ export default function ScheduleItem(todo) {
           defaultValue={todo.name}
           type="text"
           ref={inputRef}
+					autoFocus
           onKeyPress={(e) => {
             if (e.key === 'Enter') {
               setClick(false)
               setNameTodo(inputRef.current.value)
-              setTempUidd(todo.id)
+              {/*setTempUidd(todo.id)*/}
               update(ref(db, `/${auth.currentUser.uid}/${todo.id}`), {
                 nameTodo: inputRef.current.value,
                 timeTodo: todo.time,
                 tagsTodo: todo.tags,
-                tempUidd: tempUidd,
               },
               {merge: true});
             }

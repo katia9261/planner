@@ -1,21 +1,21 @@
-import React from "react";
-import styles from "./Aside.module.css";
-import avatar from "../../assets/avatar.jpg";
-import { useNavigate } from 'react-router-dom';
-import {signOut} from 'firebase/auth'
-import {auth} from '../../firebase.js'
+import React, {useState, useEffect} from 'react';
+import styles from './Aside.module.css';
+import avatar from '../../assets/avatar.jpg';
+import { useNavigate, Link } from 'react-router-dom';
+import { signOut, getAuth } from 'firebase/auth';
+import { auth } from '../../firebase.js';
+import { uid } from 'uid';
 
 export default function Aside() {
-
-  {/*Log out*/}
   const navigate = useNavigate();
   const handleSignOut = () => {
-
     signOut(auth)
-    .then(() => {
-      navigate('/')
-    })
-    .catch((err) => {alert(err.message)});
+      .then(() => {
+        navigate('/');
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
   };
 
 
@@ -29,8 +29,8 @@ export default function Aside() {
       </div>
 
       <div className={styles.navTasks}>
-        <div className={(styles.today, styles.active)}>Today</div>
-        <div className={styles.myTasks}>My tasks</div>
+        <Link to="today" className={(styles.today, styles.active)}>Today</Link>
+        <Link to="month" className={styles.myTasks}>Month</Link>
         <div className={styles.deferredTasks}>Deferred Tasks</div>
       </div>
 
@@ -39,7 +39,9 @@ export default function Aside() {
           <div className={styles.trash}>Trash</div>
           <div className={styles.settings}>Settings</div>
         </div>
-        <div className={styles.login} onClick={handleSignOut}>Log out</div>
+        <div className={styles.login} onClick={handleSignOut}>
+          Log out
+        </div>
       </div>
     </div>
   );
