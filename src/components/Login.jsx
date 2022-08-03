@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../firebase.js";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +25,7 @@ const [isRegistering, setIsRegistering] = useState(false);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if(user) {
-        navigate('/planner')
+        navigate('/planner/today')
       } else if (!user) {
         navigate('/');
       }
@@ -41,7 +41,7 @@ const [isRegistering, setIsRegistering] = useState(false);
 
   const handleSignIn = () => {
     signInWithEmailAndPassword(auth, email, password).then(() => {
-      navigate('/planner')
+      navigate('/planner/today');
     }).catch((err) => alert(err.message));
   }
 
@@ -52,9 +52,9 @@ const [isRegistering, setIsRegistering] = useState(false);
       return;
     }
 
-    createUserWithEmailAndPassword(auth, registerInfo.email, registerInfo.password)
+    const user = createUserWithEmailAndPassword(auth, registerInfo.email, registerInfo.password)
     .then(() => {
-      navigate('/planner')
+      navigate('/planner/today')
     })
     .catch((err) => alert(err.message));
   }
@@ -65,24 +65,24 @@ const [isRegistering, setIsRegistering] = useState(false);
       <h3>Welcome to ideal planner</h3>
         {isRegistering ? (
           <>
-            <input 
+            <input
               className={styles.registerInput}
-              type='email' 
-              placeholder='Email' 
+              type='email'
+              placeholder='Email'
               value={registerInfo.email}
               onChange = {(e) => setRegisterInfo({...registerInfo, email: e.target.value})}
             />
-            <input 
+            <input
               className={styles.registerInput}
-              type='password' 
+              type='password'
               placeholder='Password'
               value={registerInfo.password}
               onChange = {(e) => setRegisterInfo({...registerInfo, password: e.target.value})}
             />
-            <input 
+            <input
               className={styles.registerInput}
-              type='password' 
-              placeholder='Confirm password' 
+              type='password'
+              placeholder='Confirm password'
               value={registerInfo.confirmPassword}
               onChange = {(e) => setRegisterInfo({...registerInfo, confirmPassword: e.target.value})}
             />
@@ -94,16 +94,16 @@ const [isRegistering, setIsRegistering] = useState(false);
         ) : (
           <div className={styles.SignUpRegisterContainer}>
           <>
-            <input 
-              className={styles.signUpForm} 
-              type='Email' 
-              onChange={handleEmailChange} 
-              value={email} 
-              placeholder='email'/>
-            <input 
+            <input
               className={styles.signUpForm}
-              type='password' 
-              onChange={handlePasswordChange} 
+              type='Email'
+              onChange={handleEmailChange}
+              value={email}
+              placeholder='email'/>
+            <input
+              className={styles.signUpForm}
+              type='password'
+              onChange={handlePasswordChange}
               value={password}
               placeholder='Password'
             />

@@ -6,6 +6,6 @@
   height: 100%;
   width: 25%;
 	margin-left: 15px;
-  border-radius: 10px;
+  border-radius: 0 0 15px 0;
   background-color: #edf0f7;
 }
