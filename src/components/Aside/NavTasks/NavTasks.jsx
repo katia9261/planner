@@ -11,9 +11,6 @@ export default function NavTasks() {
       <div className={styles.myTasks}>
         My tasks
       </div>
-      <div className={styles.deferredTasks}>
-      Deferred Tasks
-      </div>
     </div>
   )
 }
