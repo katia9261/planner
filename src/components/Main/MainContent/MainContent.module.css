@@ -4,3 +4,11 @@
   justify-content: flex-start;
   height: 100vh;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:active {
+  color: #8541f6; 
+}

@@ -31,7 +31,6 @@ export default function Aside() {
       <div className={styles.navTasks}>
         <Link to="today" className={(styles.today, styles.active)}>Today</Link>
         <Link to="month" className={styles.myTasks}>Month</Link>
-        <div className={styles.deferredTasks}>Deferred Tasks</div>
       </div>
 
       <div className={styles.navSettings}>

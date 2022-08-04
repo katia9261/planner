@@ -14,6 +14,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .signUpForm {
@@ -23,11 +24,12 @@
   align-items: center;
   margin: 10px;
   background: transparent;
-  font-size: 20px;
+  font-size: 16px;
   color: #000;
   outline: none;
   border: none;
   border-bottom: 1.25px solid  #6d6d6d;
+  width: 50%;
 }
 
 .cleateAcc {
@@ -35,8 +37,9 @@
   background-color: #8541f6;
   color: white;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 16px;
   margin: 10px;
+  width: 150px;
 }
 
 .signUpButton {
@@ -44,8 +47,9 @@
   background-color: #8541f6;
   color: white;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 16px;
   margin: 10px;
+  width: 150px;
 }
 
 .LoginRegisterContainer {
@@ -57,6 +61,11 @@
   justify-content: center;
   align-items: center;
   align-content: center;
+  width: 30%;
+  height: 65%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
 }
 
 .registerInput {
@@ -66,11 +75,12 @@
   align-items: center;
   margin: 10px;
   background: transparent;
-  font-size: 20px;
+  font-size: 16px;
   color: #000;
   outline: none;
   border: none;
   border-bottom: 1.25px solid  #6d6d6d;
+  width: 50%;
 }
 
 .registerButton {
@@ -78,8 +88,9 @@
   background-color: #8541f6;
   color: white;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 16px;
   margin: 10px;
+  width: 150px;
 }
 
 .goBackButton {
@@ -87,6 +98,7 @@
   background-color: #8541f6;
   color: white;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 16px;
   margin: 10px;
+  width: 150px;
 }

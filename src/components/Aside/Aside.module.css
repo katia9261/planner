@@ -61,11 +61,14 @@ img {
   margin: 20px 0 20px 20px;
 }
 
-.today, .myTasks, .deferredTasks {
+.today, .myTasks {
   margin: 10px 0;
 }
 
-.active {
-  color: #8541f6;
+Link {
+  text-decoration: none;
 }
 
+Link:active {
+  color: #8541f6;
+}

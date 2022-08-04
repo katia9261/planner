@@ -20,7 +20,7 @@ export default function TableScheduleHeader() {
           value={value}
           checked={value}
           onChange={({ target }) => setCheckbox(!value)}
-          style={{backgroundColor: '#fff'}}
+          style={{backgroundColor: '#6d6d6d', border: 'none'}}
       />
 				<label
           className={styles.itemsSchedule__label}
@@ -30,6 +30,7 @@ export default function TableScheduleHeader() {
         </label>
         <div className={styles.itemsSchedule__time}>{columnNames.time}</div>
         <div className={styles.itemsSchedule__tags}>{columnNames.tags}</div>
+        <button disabled className={styles.itemsSchedule__delete}>delete</button>
       </div>
     </div>
   );

@@ -29,7 +29,7 @@ export default function TableSchedule() {
           id={todo.uidd}
           name={todo.nameTodo}
           time={todo.timeTodo}
-          status={false}
+          status={todo.statusTodo}
 					tags={todo.tagsTodo}
         />
       ))}
