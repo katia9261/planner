@@ -15,3 +15,7 @@
 a {
   text-decoration: none;
 }
+
+a:active, :hover {
+  color: #8541f6;
+}
