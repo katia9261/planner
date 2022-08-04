@@ -24,6 +24,7 @@ export default function Inputs() {
       timeTodo: time,
       tagsTodo: tags,
       descriptionTodo: description,
+      statusTodo: false,
       uidd: uidd,
     });
     setNameTodo('');

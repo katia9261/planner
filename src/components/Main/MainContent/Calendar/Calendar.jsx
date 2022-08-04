@@ -17,6 +17,7 @@ const MonthContrainer = styled.div`
   justify-content: space-between;
   margin: 15px 30px;
   height: 100%;
+  font-size: 12px;
 `;
 
 const Calendar = () => {

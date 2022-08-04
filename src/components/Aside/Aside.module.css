@@ -65,3 +65,10 @@ img {
   margin: 10px 0;
 }
 
+Link {
+  text-decoration: none;
+}
+
+Link:active {
+  color: #8541f6;
+}

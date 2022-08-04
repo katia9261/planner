@@ -5,14 +5,19 @@
 	align-items: center;
 }
 
-.scheduleItem__label {
-	flex-basis: 3;
-	width: 40%;
+.opacity {
+	opacity: 50%;
 }
 
-.crossed{
+.scheduleItem__label {
+	flex-basis: 3;
+	width: 35%;
+}
+
+.schedule__label_done {
 	text-decoration: line-through;
 }
+
 
 .scheduleItem__time {
 	flex-basis: 2;
@@ -24,7 +29,8 @@
 	flex-basis: 2;
 	width: 30%;
 }
-button {
+
+.scheduleItem__delete {
 	border: none;
   background-color: #8541f6;
   color: white;

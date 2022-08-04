@@ -17,7 +17,7 @@
 
 .itemsSchedule__label {
 	flex-basis: 3;
-	width: 40%;
+	width: 35%;
 	text-align: left;
 }
 
@@ -42,4 +42,15 @@ input {
 	border: none;
 	border-bottom: 1.25px solid  #6d6d6d;
 	width: 35%;
+}
+
+.itemsSchedule__delete {
+	border: none;
+  background-color: #6d6d6d;
+  color: #6d6d6d;
+  border-radius: 10px;
+  font-size: 20px;
+  font-size: 16px;
+  width: 10%;
+	margin-left: 5px;
 }

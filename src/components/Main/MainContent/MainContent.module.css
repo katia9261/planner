@@ -9,6 +9,6 @@ a {
   text-decoration: none;
 }
 
-a:active, {
-  color: #8541f6;
+a:active {
+  color: #8541f6; 
 }

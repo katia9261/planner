@@ -8,7 +8,7 @@ import { auth, db } from "../../../../../../../firebase";
 import { uid } from "uid";
 
 export default function ScheduleItem(todo) {
-  const [value, setCheckbox] = useState(todo.status);
+
   const [isEdit, setIsEdit] = useState(false);
   const [name, setNameTodo] = useState("");
   const [time, setTimeTodo] = useState("");
@@ -16,25 +16,31 @@ export default function ScheduleItem(todo) {
   const [description, setDescriptionTodo] = useState("");
   const [click, setClick] = useState(false);
 
+  const [value, setCheckbox] = useState(todo.status);
+
   const inputRef = useRef(null);
 
   const handleDelete = (uid) => {
     remove(ref(db, `/${auth.currentUser.uid}/${todo.id}`));
   };
 
-  const lalala = () => {
-  }
-
   return (
-    <div className={cn("scheduleItem")}>
+    <div className={cn('scheduleItem', todo.status && 'opacity')}>
       <Checkbox
-        value={value}
         checked={value}
-        onChange={({ target }) => setCheckbox(!value)}
+        onChange={({ target }) => {
+          setCheckbox(!value)
+          update (ref(db, `/${auth.currentUser.uid}/${todo.id}`), 
+          {
+            statusTodo: !value,
+          },
+          { marge: true }
+          );
+        }}
       />
       {!click && (
         <label
-          className={cn("scheduleItem__label")}
+          className={cn("scheduleItem__label", todo.status && 'schedule__label_done')}
           htmlFor={`checkbox-${todo.id}`}
           onClick={() => setClick(true)}
         >
@@ -56,6 +62,7 @@ export default function ScheduleItem(todo) {
                 nameTodo: inputRef.current.value,
                 timeTodo: todo.time,
                 tagsTodo: todo.tags,
+                statusTodo: todo.status,
               },
               {merge: true});
             }
@@ -64,7 +71,7 @@ export default function ScheduleItem(todo) {
       )}
       <div className={cn("scheduleItem__time")}>{todo.time}</div>
       <Tag tags={todo.tags} />
-      <button onClick={() => handleDelete(todo.id)}>Delete</button>
+      <button className={cn("scheduleItem__delete")} onClick={() => handleDelete(todo.id)}>Delete</button>
     </div>
   );
 }
