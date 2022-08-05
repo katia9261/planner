@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Checkbox from "../../Checkbox/Checkbox";
 import styles from "./ScheduleItem.css";
 import cn from "classnames";
@@ -20,8 +20,29 @@ export default function ScheduleItem(todo) {
 
   const inputRef = useRef(null);
 
+	useEffect(() => {
+    const checkIfClickedOutside = e => {
+      // If the menu is open and the clicked target is not within the menu,
+      // then close the menu
+      if (click && inputRef.current && !inputRef.current.contains(e.target)) {
+        setClick(false)
+				update(ref(db, `/${auth.currentUser.uid}/todos/${todo.id}`), {
+					nameTodo: inputRef.current.value,
+				},
+				{merge: true});
+      }
+    }
+
+    document.addEventListener("mousedown", checkIfClickedOutside)
+
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfClickedOutside)
+    }
+  }, [click])
+
   const handleDelete = (uid) => {
-    remove(ref(db, `/${auth.currentUser.uid}/${todo.id}`));
+    remove(ref(db, `/${auth.currentUser.uid}/todos/${todo.id}`));
   };
 
   return (
@@ -30,7 +51,7 @@ export default function ScheduleItem(todo) {
         checked={value}
         onChange={({ target }) => {
           setCheckbox(!value)
-          update (ref(db, `/${auth.currentUser.uid}/${todo.id}`), 
+          update (ref(db, `/${auth.currentUser.uid}/todos/${todo.id}`),
           {
             statusTodo: !value,
           },
@@ -43,6 +64,7 @@ export default function ScheduleItem(todo) {
           className={cn("scheduleItem__label", todo.status && 'schedule__label_done')}
           htmlFor={`checkbox-${todo.id}`}
           onClick={() => setClick(true)}
+					onClickOutside={() => setClick(false)}
         >
           {todo.name}
         </label>
@@ -58,11 +80,8 @@ export default function ScheduleItem(todo) {
               setClick(false)
               setNameTodo(inputRef.current.value)
               {/*setTempUidd(todo.id)*/}
-              update(ref(db, `/${auth.currentUser.uid}/${todo.id}`), {
+              update(ref(db, `/${auth.currentUser.uid}/todos/${todo.id}`), {
                 nameTodo: inputRef.current.value,
-                timeTodo: todo.time,
-                tagsTodo: todo.tags,
-                statusTodo: todo.status,
               },
               {merge: true});
             }
