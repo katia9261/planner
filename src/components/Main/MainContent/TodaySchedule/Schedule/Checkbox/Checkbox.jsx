@@ -12,7 +12,7 @@ const Label = styled.label`
   position: relative;
   display: inline-block;
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
-	margin: 5px 30px;
+	margin: 0 30px;
 `;
 
 const rotate = keyframes`
@@ -30,7 +30,7 @@ const Indicator = styled.div`
   width: 20px;
 	height: 20px;
   position: absolute;
-  top: 0em;
+  top: 0.4em;
   left: -1.6em;
   border: 1px solid #757575;
   border-radius: 10px;
@@ -74,7 +74,6 @@ export default function Checkbox({ value, checked, onChange, name, id, label, di
         id={id}
         type="checkbox"
         name={name}
-        value={value}
         disabled={disabled}
         checked={checked}
         onChange={onChange}

@@ -6,13 +6,16 @@ import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../firebase.js";
+import { auth, db } from "../firebase.js";
+import { set, ref } from 'firebase/database';
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+	const [username, setUsername] = useState("");
   const [registerInfo, setRegisterInfo] = useState({
+		username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -47,10 +50,15 @@ export default function Login() {
       .catch((err) => alert(err.message));
   };
 
+	const writeToDatabaseUserInfo = (username, email) => {
+    set(ref(db, `/${auth.currentUser.uid}/userInfo`), {
+      username: username,
+      useremail: email,
+    });
+  };
+
   const handleRegister = () => {
-    {
       /*checking a valid pass*/
-    }
     if (registerInfo.password !== registerInfo.confirmPassword) {
       alert("Your passwords are not the same");
       return;
@@ -63,6 +71,7 @@ export default function Login() {
     )
       .then(() => {
         navigate("/planner/today");
+				writeToDatabaseUserInfo(registerInfo.username, registerInfo.email);
       })
       .catch((err) => alert(err.message));
   };
@@ -73,6 +82,15 @@ export default function Login() {
         {isRegistering ? (
           <>
             <h3>Welcome to ideal planner</h3>
+						<input
+              className={styles.registerInput}
+              type="text"
+              placeholder="Username"
+              value={registerInfo.username}
+              onChange={(e) =>
+                setRegisterInfo({ ...registerInfo, username: e.target.value })
+              }
+            />
             <input
               className={styles.registerInput}
               type="email"

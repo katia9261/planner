@@ -10,7 +10,7 @@ import { uid } from "uid";
 export default function TableSchedule() {
   const [todos, setTodos] = useState([]);
   useEffect(() => {
-    onValue(ref(db, `/${auth.currentUser.uid}`), (snaphot) => {
+    onValue(ref(db, `/${auth.currentUser.uid}/todos/`), (snaphot) => {
       setTodos([]);
       const data = snaphot.val();
       if (data !== null) {
@@ -28,8 +28,9 @@ export default function TableSchedule() {
           key={`todo-${todo.uidd}`}
           id={todo.uidd}
           name={todo.nameTodo}
-          time={todo.timeTodo}
+          time={todo.timeTodo.date}
           status={todo.statusTodo}
+					description={todo.descriptionTodo}
 					tags={todo.tagsTodo}
         />
       ))}
