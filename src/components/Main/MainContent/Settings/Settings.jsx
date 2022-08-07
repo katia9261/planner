@@ -14,6 +14,11 @@ const SettingsContainer = styled.div`
   margin: 15px 45px;
   height: 100%;
   font-size: 17px;
+
+	@media (max-width: 768px) {
+		margin: 0;
+		justify-content: flex-start;
+	}
 `;
 
 const PersonalInfoContainer = styled.div`

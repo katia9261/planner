@@ -1,40 +1,6 @@
-.aside {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  width: 15%;
-  height: 100vh;
-  background-color: #edf0f7;
-  font-size: 25px;
-  margin: 20px;
-}
-
-.avatarInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  height: 20%;
-  margin-left: 20px;
-  margin-top: 20px;
-}
-
-img {
-  height: 80px;
-  width: auto;
-  border-radius: 50%;
-}
-
 
 .navSettings {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  height: 20%;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  
 }
 
 
@@ -47,7 +13,7 @@ img {
 }
 
 .trash, .settings {
-  margin: 10px 0;
+  
 }
 
 .login {
@@ -55,12 +21,7 @@ img {
 }
 
 .navTasks {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  height: 30%;
-  margin: 20px 0 20px 20px;
+  
 }
 
 .today, .myTasks {
@@ -68,8 +29,5 @@ img {
 }
 
 .login {
-	color: #8541f6;
-	cursor: pointer;
-	font-weight: bold;
-  margin-bottom: 20px;
+	
 }

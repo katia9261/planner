@@ -9,6 +9,31 @@ import {
 import { auth, db } from "../firebase.js";
 import { set, ref } from 'firebase/database';
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
+import {randomAvatar} from '.././avatars';
+
+const LoginRegisterContainer = styled.div`
+	width: 100vw;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 30%;
+  height: 65%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+
+	@media (max-width: 768px) {
+		width: 90%;
+		height: 90%;
+	}
+`;
+
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -54,6 +79,18 @@ export default function Login() {
     set(ref(db, `/${auth.currentUser.uid}/userInfo`), {
       username: username,
       useremail: email,
+			useravatar: {
+				topStyles: randomAvatar().topType,
+				accessoriesTypes: randomAvatar().accessoriesType,
+				facialHairTypes: randomAvatar().facialHairType,
+				clotheTypes: randomAvatar().clotheType,
+				clotheColors: randomAvatar().clotheColor,
+				hairColor: randomAvatar().hairColor,
+				eyeTypes: randomAvatar().eyeType,
+				eyebrowTypes: randomAvatar().eyebrowType,
+				mouthTypes: randomAvatar().mouthType,
+				skinColors: randomAvatar().skinColor,
+			},
     });
   };
 
@@ -78,7 +115,7 @@ export default function Login() {
 
   return (
     <div className={styles.loginForm}>
-      <div className={styles.LoginRegisterContainer}>
+      <LoginRegisterContainer>
         {isRegistering ? (
           <>
             <h3>Welcome to ideal planner</h3>
@@ -161,7 +198,7 @@ export default function Login() {
             </>
           </div>
         )}
-      </div>
+      </LoginRegisterContainer>
     </div>
   );
 }

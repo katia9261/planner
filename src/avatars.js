@@ -124,6 +124,8 @@ const mouthTypes = [
 ];
 const skinColors = ['Tanned', 'Yellow', 'Pale', 'Light', 'Brown', 'DarkBrown', 'Black'];
 
+const hairColors = ['Auburn', 'Black', 'Blonde', 'BlondeGolden', 'Brown', 'BrownDark', 'PastelPink', 'Blue', 'Platinum', 'Red', 'SilverGray'];
+
 export function randomAvatar () {
 	Array.prototype.random = function () {
 		return this[Math.floor((Math.random()*this.length))];
@@ -137,10 +139,12 @@ export function randomAvatar () {
 	const eyebrowType = eyebrowTypes.random();
 	const mouthType = mouthTypes.random();
 	const skinColor = skinColors.random();
+	const hairColor = hairColors.random();
 
 
 	return ({
 		topType: topType,
+		hairColor: hairColor,
 		accessoriesType: accessoriesType,
 		facialHairType: facialHairType,
 		clotheType: clotheType,

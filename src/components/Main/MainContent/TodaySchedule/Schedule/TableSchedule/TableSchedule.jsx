@@ -6,6 +6,21 @@ import { useState } from 'react';
 import { ref, onValue } from 'firebase/database';
 import { auth, db } from './../../../../../../firebase';
 import { uid } from "uid";
+import styled from 'styled-components';
+
+const TableScheduleContainer = styled.div`
+	display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40px;
+  margin: 10px 10px 0 10px;
+  border-radius: 15px 15px 0 0;
+
+	@media (max-width: 768px) {
+		width: 100%;
+		margin: 0;
+	}
+`;
 
 export default function TableSchedule() {
   const [todos, setTodos] = useState([]);
@@ -22,7 +37,7 @@ export default function TableSchedule() {
   }, [])
 
   return (
-    <div className={styles.tableSchedule}>
+    <TableScheduleContainer>
       {todos.map((todo) => (
         <ScheduleItem
           key={`todo-${todo.uidd}`}
@@ -34,6 +49,6 @@ export default function TableSchedule() {
 					tags={todo.tagsTodo}
         />
       ))}
-    </div>
+    </TableScheduleContainer>
   );
 }

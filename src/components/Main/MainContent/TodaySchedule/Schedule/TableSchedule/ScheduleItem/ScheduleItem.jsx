@@ -6,6 +6,61 @@ import Tag from '../../Tag/Tag';
 import { remove, ref, update } from 'firebase/database';
 import { auth, db } from '../../../../../../../firebase';
 import { uid } from 'uid';
+import styled from 'styled-components';
+
+const Item = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 5px 10px;
+  align-items: center;
+  vertical-align: middle;
+
+  @media (max-width: 768px) {
+    margin: 2px 10px;
+		justify-content: space-around;
+  }
+
+  opacity: ${(props) => (props.isDone ? 0.5 : 1)};
+`;
+
+const Label = styled.label`
+  flex-basis: 3;
+  width: 35%;
+  text-decoration: ${(props) => (props.isDone ? 'line-through' : 'none')};
+
+	@media (max-width: 768px) {
+		flex-basis: 2;
+		width: 20%;
+	}
+`;
+
+const SheduleTime = styled.div`
+	flex-basis: 2;
+	width: 20%;
+	text-align: center;
+	font-size: 16px;
+
+	@media (max-width: 768px) {
+		font-size: 14px;
+		flex-basis: 1;
+	}
+`;
+
+const DeleteButton = styled.button`
+		border: none;
+  background-color: #8541f6;
+  color: white;
+  border-radius: 10px;
+  font-size: 20px;
+  font-size: 16px;
+  width: 10%;
+	margin-left: 5px;
+
+	@media (max-width: 768px) {
+		font-size: 14px;
+		width: auto;
+	}
+`;
 
 export default function ScheduleItem(todo) {
   const [isEdit, setIsEdit] = useState(false);
@@ -14,7 +69,7 @@ export default function ScheduleItem(todo) {
   const [tags, setTagsTodo] = useState('');
   const [description, setDescriptionTodo] = useState('');
   const [click, setClick] = useState(false);
-	const [isHover, setIsHover] = useState(false);
+  const [isHover, setIsHover] = useState(false);
 
   const [value, setCheckbox] = useState(todo.status);
 
@@ -49,8 +104,12 @@ export default function ScheduleItem(todo) {
   };
 
   return (
-    <div className={cn('scheduleItemContainer', todo.status && 'opacity')} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-      <div className={cn('scheduleItem', todo.status && 'opacity')}>
+    <div
+      className={cn('scheduleItemContainer', todo.status && 'opacity')}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
+      <Item isDone={todo.status}>
         <Checkbox
           checked={value}
           onChange={({ target }) => {
@@ -65,14 +124,14 @@ export default function ScheduleItem(todo) {
           }}
         />
         {!click && (
-          <label
-            className={cn('scheduleItem__label', todo.status && 'schedule__label_done')}
+          <Label
+            isDone={todo.status}
             htmlFor={`checkbox-${todo.id}`}
             onClick={() => setClick(true)}
             checkIfClickedOutside={() => setClick(false)}
           >
             {todo.name}
-          </label>
+          </Label>
         )}
         {click && (
           <input
@@ -100,13 +159,20 @@ export default function ScheduleItem(todo) {
         )}
         <div className={cn('scheduleItem__time')}>{todo.time}</div>
         <Tag tags={todo.tags} />
-        <button className={cn('scheduleItem__delete')} onClick={() => handleDelete(todo.id)}>
+        <DeleteButton onClick={() => handleDelete(todo.id)}>
           Delete
-        </button>
-      </div>
-			{isHover && <div className={cn('scheduleItem__description', todo.status && 'scheduleItem__description_done')} >
-				{todo.description}
-			</div>}
+        </DeleteButton>
+      </Item>
+      {isHover && (
+        <div
+          className={cn(
+            'scheduleItem__description',
+            todo.status && 'scheduleItem__description_done'
+          )}
+        >
+          {todo.description}
+        </div>
+      )}
     </div>
   );
 }

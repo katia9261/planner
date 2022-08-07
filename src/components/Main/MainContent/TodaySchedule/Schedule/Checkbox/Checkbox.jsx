@@ -13,6 +13,11 @@ const Label = styled.label`
   display: inline-block;
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
 	margin: 0 30px;
+
+	@media (max-width: 768px) {
+		margin: 0;
+		margin-left: 30px;
+	}
 `;
 
 const rotate = keyframes`

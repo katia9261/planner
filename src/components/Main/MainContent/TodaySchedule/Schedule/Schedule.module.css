@@ -1,10 +1,5 @@
 .schedule {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 75%;
-  background-color: #edf0f7;
-	border-radius: 0 0 0 15px;
+
 }
 .contentSchedule {
   display: flex;

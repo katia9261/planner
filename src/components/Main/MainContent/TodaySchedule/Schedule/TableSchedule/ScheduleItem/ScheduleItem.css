@@ -1,9 +1,5 @@
 .scheduleItem {
-  display: flex;
-  flex-direction: row;
-	margin: 5px 10px;
-	align-items: center;
-	vertical-align: middle;
+  
 }
 
 .scheduleItemContainer {
@@ -18,20 +14,16 @@
 }
 
 .scheduleItem__label {
-	flex-basis: 3;
-	width: 35%;
+	
 }
 
 .schedule__label_done {
-	text-decoration: line-through;
+	
 }
 
 
 .scheduleItem__time {
-	flex-basis: 2;
-	width: 20%;
-	text-align: center;
-	font-size: 16px;
+	
 }
 
 .scheduleItem__tags {
@@ -40,14 +32,7 @@
 }
 
 .scheduleItem__delete {
-	border: none;
-  background-color: #8541f6;
-  color: white;
-  border-radius: 10px;
-  font-size: 20px;
-  font-size: 16px;
-  width: 10%;
-	margin-left: 5px;
+
 }
 
 .scheduleItem__description {
