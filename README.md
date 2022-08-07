@@ -1,6 +1,8 @@
 # Description
 My project is a web application for creating your plans, where you can add, modify, execute and delete your plans. You can also view them on the calendar for each month. You can also change the parameters in your account settings and set a randomly generated avatar.
 It was written using Java Script and a Java Script library - React, as well as using CSS and HTML. I also used react-dom and react-router-dom to create a navigation. Both styled-components and the name classes for easier styling. And I used firebase as the database and avataaars package for generate avatar image.
+![image](https://user-images.githubusercontent.com/101433204/183308910-a1645167-6b3e-45cd-9322-e12765af3240.png)
+
 
 # Getting Started with Create React App
 
