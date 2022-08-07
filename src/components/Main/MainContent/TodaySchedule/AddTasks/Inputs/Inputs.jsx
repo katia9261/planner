@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styles from './Inputs.module.css';
-import CustomInput from './CustomInput/CustomInput';
 import ButtonAddTask from '../ButtonAddTask/ButtonAddTask';
 import { uid } from 'uid';
 import { auth, db } from '../../../../../../firebase';
@@ -83,12 +82,18 @@ export default function Inputs() {
 
   const writeToDatabase = (name, time, tags, description) => {
 		let date = new Date(time);
+		let z = date.getTimezoneOffset() * 60 * 1000;
+		let	tLocal = date-z;
+		tLocal = new Date(tLocal)
+		let iso = tLocal.toISOString()
+		iso = iso.slice(0, 16)
+		iso = iso.replace('T', ' ')
 
     const uidd = uid();
     set(ref(db, `/${auth.currentUser.uid}/todos/${uidd}`), {
       nameTodo: name,
       timeTodo: {
-				date: time,
+				date: iso,
 				year: date.getFullYear(),
 				month: date.getMonth(),
 				day: date.getDate(),
@@ -149,9 +154,6 @@ export default function Inputs() {
         opts={clickOnTimeOpts}
         ref={inputRef}
         onClick={() => setClickOnTimeOpts(true)}
-        onClickOutside={() => {
-          setClickOnTimeOpts(false);
-        }}
         style={{ color: '#6d6d6d' }}
       >
         {!clickOnTimeOpts ? (
@@ -160,7 +162,7 @@ export default function Inputs() {
           <input
             className={styles.input}
             style={{ width: 'auto', borderBottom: '0px solid #000' }}
-            value={time ? time : currentDate}
+            value={date ? currentDate: date}
             type="datetime-local"
             onChange={handleChangeTime}
           />

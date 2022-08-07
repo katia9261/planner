@@ -4,9 +4,11 @@
   flex-direction: column;
   margin: 0;
   padding: 0;
-  width: 20%;
+  width: 15%;
   height: 100vh;
   background-color: #edf0f7;
+  font-size: 25px;
+  margin: 20px;
 }
 
 .avatarInfo {
@@ -65,10 +67,9 @@ img {
   margin: 10px 0;
 }
 
-Link {
-  text-decoration: none;
-}
-
-Link:active {
-  color: #8541f6;
+.login {
+	color: #8541f6;
+	cursor: pointer;
+	font-weight: bold;
+  margin-bottom: 20px;
 }

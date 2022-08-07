@@ -7,6 +7,17 @@ import { auth, db } from '../../firebase.js';
 import { ref, onValue } from 'firebase/database';
 import { uid } from 'uid';
 import { Loader } from '../Loader/Loader';
+import  styled  from 'styled-components';
+
+const Linked = styled(Link)`
+	text-decoration: none;
+	color: #000;
+	cursor: pointer;
+
+	&:active, &:hover {
+  color: #8541f6;
+}
+`
 
 export default function Aside() {
   const navigate = useNavigate();
@@ -37,30 +48,27 @@ export default function Aside() {
         <div className={styles.avatarImg}>
           <img src={avatar} alt="avatarImg" />
         </div>
-        <div
-          className={styles.userName}
-        >
-          {username ? username : <Loader />}
-        </div>
+        <div className={styles.userName}>{username ? username : <Loader />}</div>
       </div>
 
       <div className={styles.navTasks}>
-        <Link to="today" className={(styles.today, styles.active)}>
+        <Linked to="today" className={(styles.today, styles.active)}>
           Today
-        </Link>
-        <Link to="month" className={styles.myTasks}>
+        </Linked>
+        <Linked to="month" className={styles.myTasks}>
           Month
-        </Link>
+        </Linked>
       </div>
 
       <div className={styles.navSettings}>
         <div className={styles.navTrashSet}>
-          <div className={styles.trash}>Trash</div>
-          <div className={styles.settings}>Settings</div>
+          <Linked to="settings" className={styles.settings}>
+            Settings
+          </Linked>
         </div>
-        <div className={styles.login} onClick={handleSignOut}>
+        <a className={styles.login} onClick={handleSignOut}>
           Log out
-        </div>
+        </a>
       </div>
     </div>
   );
