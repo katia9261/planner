@@ -3,6 +3,7 @@ import Header from './Header/Header.jsx';
 import styles from './MainContent.module.css';
 import TodaySchedule from './TodaySchedule/TodaySchedule.jsx';
 import Calendar from './Calendar/Calendar.jsx';
+import Settings from './Settings/Settings.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 export default function MainContent() {
@@ -22,8 +23,17 @@ export default function MainContent() {
           path="/month"
           element={
             <>
-              <Header isCalendar={true} />
+              <Header isCalendar />
               <Calendar />
+            </>
+          }
+        />
+				<Route
+          path="/settings"
+          element={
+            <>
+              <Header isCalendar={false} isSettings={true} />
+              <Settings />
             </>
           }
         />

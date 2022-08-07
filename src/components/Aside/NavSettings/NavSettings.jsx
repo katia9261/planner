@@ -19,7 +19,6 @@ export default function NavSettings() {
   return (
     <div className={styles.navSettings}>
       <div className={styles.navTrashSet}>
-        <div className={styles.trash}>Trash</div>
         <div className={styles.settings}>Settings</div>
       </div>
         <button className={styles.login} onClick={handleSignOut}>Log out</button>
